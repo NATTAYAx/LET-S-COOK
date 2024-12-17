@@ -1,0 +1,21 @@
+{
+  "name": "flavormind",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.10"
+  },
+  "dependencies": {
+    "@azure/cosmos": "^4.1.1",
+    "i18next": "^23.15.1",
+    "i18next-http-backend": "^2.6.1",
+    "node-fetch": "^3.3.2"
+  }
+}

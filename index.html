@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title id="title">LET’S COOK</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Londrina+Solid:wght@900&display=swap" />
+</head>
+
+<body class="BackgroundALL">
+    <div class="container">
+        <header class="relative w-full h-[200px]">
+            <div class="w-full p-6 bg-white shadow-md relative z-10">
+                <div class="flex justify-between items-center">
+                    <!-- Left side content: Flexbox for the logo and title -->
+                    <div class="flex justify-center items-center space-x-4">
+                        <img src="public/external/cookbook2194-jaz9-200h.png" class="w-20 h-20" alt="cookbook">
+                        <div class="bg-white">
+                            <h1 id="title" class="text-center text-4xl font-bold">LET’S COOK</h1>
+                        </div>
+                        <img src="public/external/cutlery2196-26y9-200h.png" class="w-20 h-20" alt="cutlery">
+                    </div>
+
+                    <!-- Right side: Language Switcher -->
+                    <div class="flex items-center">
+                        <select id="languageSwitcher"
+                            class="border border-gray-300 rounded-md py-2 px-4 bg-white text-gray-700 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="en" selected>English</option>
+                            <option value="th">ไทย (Thai)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative z-10 max-w-lg mx-auto">
+                <form id="recipeForm" class="space-y-6 max-w-full px-6 mx-auto">
+                    <section class="input-section">
+                        <label for="freeText" class="block text-lg font-bold text-white mb-1">
+                            <span id="textareaLabel" class="flex items-center mt-2">
+                                <!-- Adjust margin-top for both image and text -->
+                                <img src="public/external/union2184-b7mo.svg" alt="Icon"
+                                    class="inline-block w-5 h-5 mr-2">
+                                Menu Details
+                            </span>
+                        </label>
+                        <textarea id="freeText" name="freeText" rows="5"
+                            placeholder="e.g., low sodium chicken Stir fly"
+                            class="block w-full mt-2 p-4 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 border border-gray-300 text-gray-800"></textarea>
+                    </section>
+                </form>
+            </div>
+
+            <!-- Background Image -->
+            <img src="public/external/image22413-j4gq-700h.png" alt="Background Image"
+                class="absolute top-0 left-0 w-full h-full z-0 object-cover">
+        </header>
+
+        <div class="ingredientALL">
+            <div class="avoid-container">
+                <div class="avoid-item">
+                    <img src="public/external/nofish2159-897-200h.png" alt="Icon">
+                    <span id="avoidIn">ส่วนผสมที่หลีกเลี่ยง</span>
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="grid grid-cols-8 gap-4 mt-2">
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient1" name="ingredients" value="milk" class="hidden">
+                        <label for="ingredient1"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/milk.png" alt="Milk" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel1" class="text-sm text-gray-700 -ml-1 break-words">Milk</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient2" name="ingredients" value="cheese" class="hidden">
+                        <label for="ingredient2"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/cheese.png" alt="Cheese" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel2" class="text-sm text-gray-700 break-words">Cheese</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient3" name="ingredients" value="yogurt" class="hidden">
+                        <label for="ingredient3"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/yogurt.png" alt="Yogurt" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel3" class="text-sm text-gray-700 break-words">Yogurt</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient4" name="ingredients" value="butter" class="hidden">
+                        <label for="ingredient4"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/butter.png" alt="Butter" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel4" class="text-sm text-gray-700 break-words">Butter</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient5" name="ingredients" value="cream" class="hidden">
+                        <label for="ingredient5"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/cream.png" alt="Cream" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel5" class="text-sm text-gray-700 break-words">Cream</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient6" name="ingredients" value="almond" class="hidden">
+                        <label for="ingredient6"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/almond.png" alt="Almond" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel6" class="text-sm text-gray-700 break-words">Almond</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient7" name="ingredients" value="cashew" class="hidden">
+                        <label for="ingredient7"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/cashew.png" alt="Cashew" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel7" class="text-sm text-gray-700 break-words">Cashew</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient8" name="ingredients" value="walnut" class="hidden">
+                        <label for="ingredient8"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/walnut.png" alt="Walnut" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel8" class="text-sm text-gray-700 break-words">Walnut</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient9" name="ingredients" value="peanuts" class="hidden">
+                        <label for="ingredient9"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/peanuts.png" alt="Peanuts" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel9" class="text-sm text-gray-700 ml-2 break-words">Peanuts</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient10" name="ingredients" value="sesame" class="hidden">
+                        <label for="ingredient10"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/sesame.png" alt="Sesame" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel10" class="text-sm text-gray-700 ml-2 break-words">Sesame</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient11" name="ingredients" value="shrimp" class="hidden">
+                        <label for="ingredient11"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/shrimp.png" alt="Shrimp" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel11" span class="text-sm text-gray-700 break-words">Shrimp</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient12" name="ingredients" value="crab" class="hidden">
+                        <label for="ingredient12"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/crab.png" alt="Crab" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel12" class="text-sm text-gray-700 break-words">Crab</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient13" name="ingredients" value="lobster" class="hidden">
+                        <label for="ingredient13"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/lobster.png" alt="Lobster" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel13" class="text-sm text-gray-700 break-words">Lobster</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient14" name="ingredients" value="clams" class="hidden">
+                        <label for="ingredient14"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/clam.png" alt="Clams" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel14" class="text-sm text-gray-700 break-words">Clams</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient15" name="ingredients" value="oyster" class="hidden">
+                        <label for="ingredient15"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/oyster.png" alt="Oyster" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel15" class="text-sm text-gray-700 break-words">Oyster</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient16" name="ingredients" value="tuna" class="hidden">
+                        <label for="ingredient16"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/tuna.png" alt="Tuna" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel16" span class="text-sm text-gray-700 break-words">Tuna</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient17" name="ingredients" value="salmon" class="hidden">
+                        <label for="ingredient17"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/salmon.png" alt="Salmon" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel17" class="text-sm text-gray-700 break-words">Salmon</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient18" name="ingredients" value="mackerel" class="hidden">
+                        <label for="ingredient18"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/mackerel.png" alt="Mackerel" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel18" class="text-sm text-gray-700 break-words">Mackerel</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient19" name="ingredients" value="gluten-flour" class="hidden">
+                        <label for="ingredient19"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/wheat.png" alt="Gluten-Flour" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel19" class="text-sm text-gray-700 break-words">Gluten
+                                Flour</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient20" name="ingredients" value="wheat-bread" class="hidden">
+                        <label for="ingredient20"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/bread.png" alt="Wheat-Bread" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel20" class="text-sm text-gray-700 break-words">Wheat
+                                Bread</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient21" name="ingredients" value="pasta" class="hidden">
+                        <label for="ingredient21"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/pasta.png" alt="Pasta" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel21" class="text-sm text-gray-700 break-words">Pasta</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient22" name="ingredients" value="corn-syrup" class="hidden">
+                        <label for="ingredient22"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/corn-syrup.png" alt="Corn-Syrup" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel22" class="text-sm text-gray-700 break-words">Corn Syrup</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient23" name="ingredients" value="corn-starch" class="hidden">
+                        <label for="ingredient23"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/starch.png" alt="Corn-Starch" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel23" class="text-sm text-gray-700 break-words">Corn
+                                Starch</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient24" name="ingredients" value="sugar" class="hidden">
+                        <label for="ingredient24"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/sugar.png" alt="Sugar" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel24" class="text-sm text-gray-700 break-words">Sugar</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient25" name="ingredients" value="soy-sauce" class="hidden">
+                        <label for="ingredient25"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/soy-sauce.png" alt="Soy-sauce" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel25" class="text-sm text-gray-700 break-words">Soy-sauce</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient26" name="ingredients" value="mustard" class="hidden">
+                        <label for="ingredient26"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/mustard.png" alt="Mustard" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel26" class="text-sm text-gray-700 break-words">Mustard</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient27" name="ingredients" value="chili" class="hidden">
+                        <label for="ingredient27"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/chili.png" alt="Chili" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel27" class="text-sm text-gray-700 ml-2 break-words">Chili</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient28" name="ingredients" value="eggs" class="hidden">
+                        <label for="ingredient28"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/egg.png" alt="Eggs" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel28" class="text-sm text-gray-700 ml-2 break-words">Eggs</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient29" name="ingredients" value="tofu" class="hidden">
+                        <label for="ingredient29"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/tofu.png" alt="Tofu" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel29" class="text-sm text-gray-700 break-words">Tofu</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient30" name="ingredients" value="garlic" class="hidden">
+                        <label for="ingredient30"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/garlic.png" alt="Garlic" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel30" class="text-sm text-gray-700 break-words">Garlic</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient31" name="ingredients" value="pork" class="hidden">
+                        <label for="ingredient31"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/pork.png" alt="Pork" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel31" class="text-sm text-gray-700 break-words">Pork</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient32" name="ingredients" value="beef" class="hidden">
+                        <label for="ingredient32"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/beef.png" alt="Beef" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel32" class="text-sm text-gray-700 break-words">Beef</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient33" name="ingredients" value="lamb" class="hidden">
+                        <label for="ingredient33"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/lamb.png" alt="Lamb" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel33" class="text-sm text-gray-700 break-words">Lamb</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient34" name="ingredients" value="orange" class="hidden">
+                        <label for="ingredient34"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/orange.png" alt="Orange" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel34" class="text-sm text-gray-700 break-words">Orange</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient35" name="ingredients" value="lemon" class="hidden">
+                        <label for="ingredient35"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/lemon.png" alt="Lemon" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel35" class="text-sm text-gray-700 break-words">Lemon</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient36" name="ingredients" value="coconut" class="hidden">
+                        <label for="ingredient36"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/coconut.png" alt="Coconut" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel36" class="text-sm text-gray-700 break-words">Coconut</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient37" name="ingredients" value="celery" class="hidden">
+                        <label for="ingredient37"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/celery-root.png" alt="Celery" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel37" class="text-sm text-gray-700 break-words">Celery</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient38" name="ingredients" value="onions" class="hidden">
+                        <label for="ingredient38"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/onion.png" alt="Onions" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel38" class="text-sm text-gray-700 break-words">Onions</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient39" name="ingredients" value="bellPeppers" class="hidden">
+                        <label for="ingredient39"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/bellPeppers.png" alt="BellPeppers" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel39" class="text-sm text-gray-700 break-words">Bell Peppers</span>
+                        </label>
+                    </div>
+                    <div class="ingredient-option">
+                        <input type="checkbox" id="ingredient40" name="ingredients" value="mushrooms" class="hidden">
+                        <label for="ingredient40"
+                            class="cursor-pointer flex flex-col items-center w-28 h-28 justify-center text-center">
+                            <img src="/Images/mushroom.png" alt="Mushroom" class="w-12 h-12 mb-2">
+                            <span id="ingredientLabel40" class="text-sm text-gray-700 break-words">Mushrooms</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="image-container1">
+                <img src="public/external/minimalblacklinepapercupofcoffeecroissantandcandy2111-h2l8-400w.png"
+                    alt="Icon" class="artcoffee">
+            </div>
+        </div>
+
+
+        <div class="food-cuisine-container">
+            <div class="food-type">
+                <div class="desktop3-foodtype1">
+                    <h2 class="desktop3-text12 text-white text-3xl font-bold mb-2" id="foodTypeTitle">Food Type</h2>
+                    <select id="foodType" name="foodType"
+                        class="block w-full mt-1 p-3 border border-gray-300 rounded-md shadow-sm transition-all duration-300 ease-in-out transform bg-white text-black hover:border-blue-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-400">
+                        <option id="foodTypeAny" value="any">Any</option>
+                        <option id="foodTypeVegan" value="vegan">Vegan</option>
+                        <option id="foodTypeVegetarian" value="vegetarian">Vegetarian</option>
+                        <option id="foodTypeGlutenFree" value="glutenFree">Gluten Free</option>
+                        <option id="foodTypeDairyFree" value="dairyFree">Dairy Free</option>
+                        <option id="foodTypePaleo" value="paleo">Paleo</option>
+                        <option id="foodTypeKeto" value="keto">Keto</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="cuisine-type">
+                <div class="desktop3-foodtype2">
+                    <h3 class="desktop3-text12 text-white text-3xl font-bold mb-2" id="cuisineTypeTitle">Cuisine
+                        Type</h3>
+                    <select id="cuisineType" name="cuisine"
+                        class="block w-full mt-1 p-3 border border-gray-300 rounded-md shadow-sm">
+                        <option id="cuisineTypeAny" value="any">Any</option>
+                        <option id="cuisineTypeItalian" value="italian">Italian</option>
+                        <option id="cuisineTypeAsian" value="asian">Asian</option>
+                        <option id="cuisineTypeMediterranean" value="mediterranean">Mediterranean</option>
+                        <option id="cuisineTypeMexican" value="mexican">Mexican</option>
+                        <option id="cuisineTypeChinese" value="chinese">Chinese</option>
+                        <option id="cuisineTypeJapanese" value="japanese">Japanese</option>
+                        <option id="cuisineTypeThai" value="thai">Thai</option>
+                        <option id="cuisineTypeIndian" value="indian">Indian</option>
+                        <option id="cuisineTypeKorean" value="korean">Korean</option>
+                        <option id="cuisineTypeVietnamese" value="vietnamese">Vietnamese</option>
+                    </select>
+                </div>
+            </div>
+            </form>
+        </div>
+        <div>
+            <input class="checkbox-pop" type="checkbox" id="relaxSearch" name="relaxSearch" value="relax" />
+            <label for="relaxSearch"><span></span>Offer suggestions if no exact matches (Exclude food type)</label>
+        </div>
+        <div class="buttonall">
+            <div class="button-container">
+                <img src="public/external/manwithfruitsandvegetableslivingahealthylife2112-l9zg-400h.png"
+                    alt="Background Image" class="background-image">
+                <button type="submit" form="recipeForm" id="generateButton">Generate Recipes</button>
+            </div>
+        </div>
+
+        <div id="loadingText" style="display: none;" class="mt-4 text-center">
+            <p class="text-gray-600">Loading recipes...</p>
+        </div>
+
+
+        <div id="loadingIndicator" style="display: none;" class="mt-4 text-center">
+            <style>
+                .loader {
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: #252121;
+                }
+
+                .text-gray-600 {
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #666;
+                }
+            </style>
+            <span class="loader">Loading</span>
+            <p class="text-gray-600">Processing ingredient substitutions...</p>
+        </div>
+
+
+        <div id="recipeResults" class="mt-8 space-y-6"></div>
+        <div id="ingredientSubstitutions" style="display: none;">
+            <h3 class="text-lg font-bold mt-4">Ingredient Substitutions:</h3>
+            <ul id="substitutions-list"></ul>
+        </div>
+
+        <script src="https://unpkg.com/i18next@21.6.11/dist/umd/i18next.min.js"></script>
+        <script src="https://unpkg.com/i18next-http-backend@1.4.3/i18nextHttpBackend.min.js"></script>
+        <script src="./script.js"></script>
+</body>
+
+</html>
