@@ -1,3 +1,5 @@
+import CONFIG from './config.js';
+
 i18next
     .use(i18nextHttpBackend)
     .init({
@@ -133,20 +135,15 @@ document.getElementById('languageSwitcher').addEventListener('change', (e) => {
 });
 
 // Store multiple Spoonacular API keys
-const spoonacularAPIKeys = [
-    'd4702ef95d1a4825b15ece078760dea8', //1
-    'e4beedd4bdad45219e223a6100e79276', //2
-    'cb7aaad773e14136b2ffb9f1e3300d66', //3
-    '8ab5a8e8ae0d41b28f7eb0f2c08a6764', //4
-    '2fc1b1cfb31a4d27b6213098c399c704', //5
-    '230168bf80de477ebfbe382239daa59e', //6
-    '8a597223062146d59f457a28689476a0', //7
-    'a073ca909ca940e7be6b61c0b39be3fe', //8
-    'd3eba2d9d20f48b4a6d038b25c20d183', //9
-    '361bedd50d884107bb5b34bee047cbed', //10
-    'cb942c6b39d845c08ff1b57c028d0aac', //11
-    'f0f17a0a917942da8c43aef9da6181fb', //12
-];
+const spoonacularAPIKeys = CONFIG.SPOONACULAR_API_KEYS;
+const RECIPE_SEARCH_API_URL = CONFIG.RECIPE_SEARCH_API_URL;
+const INGREDIENT_SUBSTITUTION_API_URL = CONFIG.INGREDIENT_SUBSTITUTION_API_URL;
+const RECIPE_GENERATE_API_URL = CONFIG.RECIPE_GENERATE_API_URL;
+const DEFAULT_LANGUAGE = CONFIG.DEFAULT_LANGUAGE;
+const FALLBACK_LANGUAGE = CONFIG.FALLBACK_LANGUAGE;
+
+console.log("Default Language:", DEFAULT_LANGUAGE);
+console.log("Recipe Search API URL:", RECIPE_SEARCH_API_URL);
 
 let currentKeyIndex = 0; // To keep track of the current key
 
@@ -163,7 +160,8 @@ function switchAPIKey() {
 
 // Function to fetch recipes from Lambda (NLP API)
 async function fetchRecipes(query, foodType, cuisineType) {
-    const url = 'https://a5yg50vs64.execute-api.ap-southeast-2.amazonaws.com/dev/recipe-search';
+    const url = RECIPE_SEARCH_API_URL;
+
     const body = {
         query: query.trim(),
         diet: foodType && foodType !== 'any' ? foodType : undefined,
@@ -215,7 +213,7 @@ async function fetchIngredientSubstitutions(ingredientName) {
     console.log(`Fetching substitution for ingredient: ${normalizedIngredient}`);  // Log ingredient being fetched
 
     // Build the API URL with the ingredientName query parameter
-    const ingredientSubstitutionURL = `https://a5yg50vs64.execute-api.ap-southeast-2.amazonaws.com/dev/ingredient-substitution/?ingredientName=${encodeURIComponent(normalizedIngredient)}`;
+    const ingredientSubstitutionURL = `${CONFIG.INGREDIENT_SUBSTITUTION_API_URL}/?ingredientName=${encodeURIComponent(normalizedIngredient)}`;
 
     try {
         // Send the GET request to the Lambda function
@@ -464,7 +462,7 @@ async function fetchSpoonacularRecipes(entities, avoidIngredients = [], cuisineT
 
 // Function to call Spoonacular API using entities (ingredients, nutrition, dish type, etc.)
 async function callRecipeSearchAPI(entities, foodType, cuisineType, nutritionGoals, avoidIngredients, relaxSearch) {
-    const url = 'https://a5yg50vs64.execute-api.ap-southeast-2.amazonaws.com/dev/recipe-generate';
+    const url = CONFIG.RECIPE_GENERATE_API_URL;
     const body = {
         entities: entities,
         cuisineType: cuisineType !== 'any' ? cuisineType : 'any',
